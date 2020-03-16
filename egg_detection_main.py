@@ -120,7 +120,7 @@ while True:
 
     # fgmask = self.fgbg.apply(peaks8u)
 
-    _, contours, hierarchy = cv2.findContours(peaks8u, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(peaks8u, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     peaks8u = cv2.convertScaleAbs(peaks)  # to use as mask
 
     # plot reference lines (entrance and exit lines)
