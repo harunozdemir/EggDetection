@@ -29,6 +29,7 @@ class Settings(QWidget):
 
         self.sldBorderSize = QSlider(Qt.Horizontal, self)
         self.sldBorderSize.setMinimum(20)
+        self.sldBorderSize.setMaximum(200)
 
 
 

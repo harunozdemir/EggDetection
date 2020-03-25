@@ -58,7 +58,7 @@ def getDistance(coordYEgg1, coordYEgg2):
 
     return dist
 
-
+#image = cv2.imread('3.png')
 cap = cv2.VideoCapture('20180910_144521.mp4')
 #cap = cv2.VideoCapture(0)
 #cap = cv2.VideoCapture('rtsp://admin:9ejq28Ez@172.16.1.65:554/Streaming/Channels/101?transportmode=unicast&profile=Profile_1')
@@ -118,7 +118,7 @@ while True:
     th, peaks = cv2.threshold(nxcor, mx * 0.5, 255, cv2.THRESH_BINARY)
     peaks8u = cv2.convertScaleAbs(peaks)
 
-    # fgmask = self.fgbg.apply(peaks8u)
+    fgmask = fgbg.apply(peaks8u)
 
     contours, hierarchy = cv2.findContours(peaks8u, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     peaks8u = cv2.convertScaleAbs(peaks)  # to use as mask
@@ -193,6 +193,7 @@ while True:
                             (250, 0, 1), 2)
 
     cv2.imshow("Original Frame", frame40)
+    cv2.imshow("Masks Frame", fgmask)
 
     key = cv2.waitKey(1)
 
